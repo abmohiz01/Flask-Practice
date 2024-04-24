@@ -1,8 +1,8 @@
 from flask import Blueprint
 from my_app.hello.models import MESSAGES
-hello = Blueprint('hello', __name__)
+hello = Blueprint('product', __name__)
 @hello.route('/')
-@hello.route('/hello')
+@hello.route('/product')
 def hello_world():
     return MESSAGES['default']
 @hello.route('/show/<key>')

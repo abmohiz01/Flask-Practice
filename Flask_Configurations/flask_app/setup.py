@@ -3,13 +3,13 @@
 import os
 from setuptools import setup
 setup(
-    name = 'my_app',
+    name = 'jinja_app1',
     version='1.0',
     license='GNU General Public License v3',
     author='Ab mohiz',
     author_email='abmohiz@gmail.com',
     description='Hello world application for Flask',
-    packages=['my_app'],
+    packages=['jinja_app1'],
     platforms='any',
     install_requires=[
         'Flask',
