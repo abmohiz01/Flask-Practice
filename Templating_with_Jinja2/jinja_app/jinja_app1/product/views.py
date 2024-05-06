@@ -2,6 +2,8 @@ from werkzeug.exceptions import abort
 from flask import render_template
 from flask import Blueprint
 from Templating_with_Jinja2.jinja_app.jinja_app1.product.models import PRODUCTS
+import ccy
+from flask import request
 
 products_bp = Blueprint('product', __name__)
 
@@ -25,3 +27,9 @@ def some_processor():
         return '{0} / {1}'.format(product['category'],
           product['name'])
     return {'full_name': full_name}
+
+'''This custom jinja filter can be used instead of the context processor'''
+@products_bp.app_template_filter('format_currency')
+def format_currency_filter(amount):
+    currency_code =ccy.countryccy(request.accept_languages.best[-2:])
+    return '{0} {1}'.format(currency_code, amount)
